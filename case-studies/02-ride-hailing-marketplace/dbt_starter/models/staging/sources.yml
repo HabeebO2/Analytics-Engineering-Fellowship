@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw
+    database: RIDEFLOW
+    schema: RAW
+    tables:
+      - name: raw_riders
+      - name: raw_drivers
+      - name: raw_trips
+      - name: raw_payments
+      - name: raw_driver_incentives
