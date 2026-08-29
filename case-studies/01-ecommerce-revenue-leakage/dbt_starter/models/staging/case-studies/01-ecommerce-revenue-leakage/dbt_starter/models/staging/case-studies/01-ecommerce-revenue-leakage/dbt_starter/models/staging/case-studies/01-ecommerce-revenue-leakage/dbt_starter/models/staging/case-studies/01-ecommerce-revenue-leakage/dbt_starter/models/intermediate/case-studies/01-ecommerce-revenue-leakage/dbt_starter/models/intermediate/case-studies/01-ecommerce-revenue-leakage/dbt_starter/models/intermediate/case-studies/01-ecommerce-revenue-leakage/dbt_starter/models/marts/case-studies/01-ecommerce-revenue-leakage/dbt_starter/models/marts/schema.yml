@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: mart_revenue
+    description: "Final revenue table. One row per order. Single source of truth for revenue reporting. Reconciles Finance vs Ops definitions."
+    columns:
+      - name: order_id
+        description: "Unique order identifier"
+        tests:
+          - not_null
+      - name: finance_revenue
+        description: "Revenue per Finance — recognized when payment_status = succeeded"
+      - name: ops_revenue
+        description: "Revenue per Ops — recognized when order_status = completed"
+      - name: net_revenue
+        description: "Recommended metric. Finance revenue minus refunds."
+      - name: refund_amount
+        description: "Total refunded. Zero if no refund exists."
